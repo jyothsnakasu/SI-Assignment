@@ -1,0 +1,41 @@
+ sapply(mean_supp, var)
+      OJ       VC 
+43.63344 68.32723 
+> t.test(df$len[df$supp == "VC"], df$len[df$supp == "OJ"], paired=FALSE, var.equal=FALSE)
+
+	Welch Two Sample t-test
+
+data:  df$len[df$supp == "VC"] and df$len[df$supp == "OJ"]
+t = -1.9153, df = 55.309, p-value = 0.06063
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -7.5710156  0.1710156
+sample estimates:
+mean of x mean of y 
+ 16.96333  20.66333 
+
+> t.test(df$len[df$dose==1], df$len[df$dose==0.5], paired = FALSE, var.equal = TRUE)
+
+	Two Sample t-test
+
+data:  df$len[df$dose == 1] and df$len[df$dose == 0.5]
+t = 6.4766, df = 38, p-value = 1.266e-07
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+  6.276252 11.983748
+sample estimates:
+mean of x mean of y 
+   19.735    10.605 
+
+> t.test(df$len[df$dose==2], df$len[df$dose==1], paired = FALSE, var.equal = TRUE)
+
+	Two Sample t-test
+
+data:  df$len[df$dose == 2] and df$len[df$dose == 1]
+t = 4.9005, df = 38, p-value = 1.811e-05
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ 3.735613 8.994387
+sample estimates:
+mean of x mean of y 
+   26.100    19.735 
