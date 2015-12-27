@@ -1,0 +1,29 @@
+> data(ToothGrowth)
+> data(ToothGrowth)
+> df <- data.frame(ToothGrowth)
+> dim(df)
+[1] 60  3
+> summary(df)
+      len        supp         dose      
+ Min.   : 4.20   OJ:30   Min.   :0.500  
+ 1st Qu.:13.07   VC:30   1st Qu.:0.500  
+ Median :19.25           Median :1.000  
+ Mean   :18.81           Mean   :1.167  
+ 3rd Qu.:25.27           3rd Qu.:2.000  
+ Max.   :33.90           Max.   :2.000  
+> mean_supp = split(df$len, df$supp)
+> sapply(mean_supp, mean)
+      OJ       VC 
+20.66333 16.96333 
+> 
+> mean_dose = split(df$len, df$dose)
+> sapply(mean_dose, mean)
+   0.5      1      2 
+10.605 19.735 26.100 
+> ggplot(data=df, aes(x=supp, y=len)) + geom_boxplot(aes(fill=supp), outlier.colour = "green", outlier.size = 3) + labs(title="Plot of Supplementary Type vs Tooth Length", x="Supplementary", y="Tooth Length")
+Error in grid.newpage() : 
+  QuartzBitmap_Output - unable to open file './figures/Plot11.png'
+> 
+> ggplot(data=df, aes(x=dose, y=len)) + geom_boxplot(aes(fill=factor(dose)), outlier.colour = "green", outlier.size = 3) + labs(title="Plot of Dose Quantity vs Tooth Length", x="Dose Quantity", y="Tooth Length")
+Error in grid.newpage() : 
+  QuartzBitmap_Output - unable to open file './figures/Plot11.png'
